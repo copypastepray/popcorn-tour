@@ -4,130 +4,17 @@
     <title>Popcorn Tour</title>
     <link rel="stylesheet" href="./styles.css">
     <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <!-- <script type="text/javascript" src="./kernels.js"></script> -->
+    <script type="module" src="./popcorn.js"></script>
   </head>
   <body>
-    <div class="demo-cols">
-      <button id="button" aria-describedby="tooltip">My button</button>
-      <button id="button2" aria-describedby="tooltip">My button 2</button>
-      <button id="button3" aria-describedby="tooltip">My button 3</button>
-    </div>
-    <button id="startTourBtn" class="btn">Start Tour</button>
-    <!-- <script>
-        // showLog(tour,kernels)
-        // let cnt = 1
-        // const klen = kernels.length
-        // if(tour.startEl.length > 0){
-        //   // Attach tour to specified start element
-        //   const startEl = document.querySelector(`${tour.startEl}`)
-        //   startEl.addEventListener('click',() => {show(cnt)})
-        // }else{
-        //   // autostart on load
-        //   show(cnt)
-        // }
-
-        // function show(cnt, action = null) {
-        //   showLog('show me: ',cnt)
-        //   const kernel = kernels[cnt - 1]
-        //   const el = document.querySelector(kernel.el)
-        //   let hideCnt = cnt
-        //   if(action=='back'){
-        //     hide(hideCnt++,action)
-        //   }
-        //   if(action=='next'){
-        //     hide(hideCnt++,action)
-        //   }
-        //   buildTooltip(tour,cnt,el,klen,kernel)
-        //   document.querySelector(`#pct_tooltip${cnt}`).setAttribute('data-show', '');
-        //   el.classList.add("pct_hl")
-        // }
-
-        // function hide(cnt, action = null) {
-        //   if(action=='back'){
-        //     cnt++
-        //   }
-        //   if(action=='next'){
-        //     cnt--
-        //   }
-        //   showLog('hide me: ',cnt)
-        //   const thisTT = document.querySelector(`#pct_tooltip${cnt}`).removeAttribute('data-show');
-        //   document.querySelector(kernels[cnt-1].el).classList.remove("pct_hl")
-        // }
-
-        // function exit(cnt){
-        //   document.querySelector(`#pct_tooltip${cnt}`).removeAttribute('data-show');
-        //   document.querySelector(kernels[cnt-1].el).classList.remove("pct_hl")
-        // }
-
-        // function buildTooltip(tour,cnt,el,klen,kernel){
-        //   showLog('build me: ',cnt)
-        //   showLog('el: ',el)
-        //   showLog(tour.highlightColor)
-        //   tour.highlightColor.length > 0 ? buildHighlight(tour.highlightColor) : null
-        //   let ttWrap = document.createElement('div')
-        //   ttWrap.id = `pct_tooltip${cnt}`
-        //   ttWrap.name = `pct_tooltip${cnt}`
-        //   ttWrap.className = `pct_tooltip`
-        //   ttWrap.innerHTML = buildHeader(cnt, kernel.title) + buildContent(kernel.content) + buildFooter(tour,cnt,klen) + buildArrow()
-        //   document.body.appendChild(ttWrap)
-        //   const tooltip = document.querySelector(`#pct_tooltip${cnt}`)
-        //   const popperInstance = Popper.createPopper(el, tooltip, {
-        //     placement: `${kernel.loc}`,
-        //     modifiers: [{name: 'offset',options: {offset: [0, 8],}}]
-        //   });
-        //   popperInstance.update();
-        //   tooltip.setAttribute('data-show', '');
-        // }
-
-        // function buildHighlight(hlcolor){
-        //   if(hlcolor && /^#[0-9A-F]{6}$/i.test(hlcolor)){
-        //     let hlStyle = document.createElement('style')
-        //     hlStyle.innerHTML = `.pct_hl{border: 3px solid ${hlcolor} !important; box-shadow: 0 0 10px ${hlcolor} !important;}`
-        //     document.head.appendChild(hlStyle)
-        //   }
-        // }
-
-        // function buildHeader(cnt, ktitle){
-        //   let ttHead = `<div class="pct_header">`
-        //   ttHead += `<h2 class="pct_title">${ktitle}</h2>`
-        //   if(tour.hasClose){ ttHead += `<span class="pct_close" onclick="exit(${cnt})">X</span>` }
-        //   ttHead += `</div>`
-        //   return ttHead
-        // }
-
-        // function buildContent(kcontent){
-        //   return `<div class="pct_content">${kcontent}</div>`
-        // }
-
-        // function buildFooter(tour,cnt,klen){
-        //   let ttFoot = `<div class="pct_footer">`
-        //   ttFoot += `<div class="pct_actions">`
-        //   let showBackBtnClass = '' 
-        //   if(cnt === 1){
-        //     showBackBtnClass = 'invis' 
-        //   }
-        //   ttFoot += `<button class="pct_btn pct_back ${showBackBtnClass}" onclick="show(${cnt - 1},'back')">&laquo; Back</button>`
-        //   if(tour.hasStepCount){ttFoot  += `<span class="pct_step_cnt">${cnt} of ${klen}</span>`}
-        //   if(cnt === klen && tour.hasExit){
-        //     ttFoot += `<button class="pct_btn pct_exit" onclick="exit(${cnt})">Exit</button>`
-        //   }else{
-        //     ttFoot += `<button class="pct_btn pct_next" onclick="show(${cnt + 1},'next')">Next &raquo;</button>`
-        //   }
-        //   ttFoot  += `</div>` 
-        //   ttFoot  += `</div>`
-        //   return ttFoot
-        // }
-
-        // function buildArrow(){
-        //   return ` <div class="pct_arrow" data-popper-arrow></div>`
-        // }
-
-        // function showLog(msg,msg2){
-        //   if(tour.debug){
-        //     console.log(msg, msg2)
-        //   }
-        // }
-    </script> -->
-    <script type="module" src="./popcorn.js"></script>
+    <!-- DEMO ONLY -->
+      <div class="demo-cols">
+        <button id="button" aria-describedby="tooltip">My button</button>
+        <button id="button2" aria-describedby="tooltip">My button 2</button>
+        <button id="button3" aria-describedby="tooltip">My button 3</button>
+      </div>
+      <!-- DEMO: Start Button triggers the tour, but you can use other elements, specify in kernels.js. -->
+      <button id="startTourBtn" class="btn">Start Tour</button>
+    <!-- /DEMO ONLY -->
   </body>
 </html>
